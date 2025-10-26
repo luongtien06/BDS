@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Đất nền - BĐS Việt Nam</title>
+  <link rel="stylesheet" href="css/section.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">BĐS Việt Nam</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Trang Chủ</a></li>
+          <li><a href="trade.html">Mua Bán</a></li>
+          <li><a href="hire.html">Cho Thuê</a></li>
+          <li><a href="land.html" class="active">Đất nền</a></li>
+          <li><a class="login" href="login.html">Đăng Nhập</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="search-section">
+    <div class="container">
+      <h2 class="section-title">Đất nền - Tìm kiếm & lọc</h2>
+
+      <form id="buy-search-form" onsubmit="searchLand(event)">
+        <div class="form-group">
+          <div class="form-group">
+            <label>Từ khóa</label>
+            <input id="kw" type="text" placeholder="Đất thổ cư, gần chợ..." />
+          </div>
+
+          <div class="form-group">
+            <label>Khu vực</label>
+            <select id="area">
+              <option value="">Tất cả</option>
+              <option>Quận 1</option>
+              <option>Quận 2</option>
+              <option>Quận 7</option>
+              <option>Bình Thạnh</option>
+              <option>Quận 9</option>
+              <option>TP.HCM</option>
+              <option>Hà Nội</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Diện tích (m²)</label>
+            <select id="size">
+              <option value="">Tất cả</option>
+              <option value="0-50">Dưới 50</option>
+              <option value="50-100">50 - 100</option>
+              <option value="100-300">100 - 300</option>
+              <option value="300+">300+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Giá (tỷ)</label>
+            <select id="priceRange">
+              <option value="">Tất cả</option>
+              <option value="0-1">Dưới 1</option>
+              <option value="1-3">1 - 3</option>
+              <option value="3-10">3 - 10</option>
+              <option value="10+">Trên 10</option>
+            </select>
+          </div>
+
+          <div>
+            <button type="submit">🔍 Tìm</button>
+          </div>
+        </div>
+      </form>
+
+      <div style="margin-top:1rem;">
+        <label style="font-weight:600; margin-right:0.5rem;">Lọc nhanh:</label>
+        <button class="filter-chip" onclick="quickLandFilter('new', this)">🆕 Mới</button>
+        <button class="filter-chip" onclick="quickLandFilter('sodo', this)">📜 Sổ đỏ</button>
+        <button class="filter-chip" onclick="quickLandFilter('mainroad', this)">🛣️ Mặt tiền</button>
+        <button class="filter-chip" onclick="quickLandFilter('project', this)">🏗️ Dự án</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="listings">
+    <div class="container">
+      <div class="listings-header">
+        <h2 class="section-title" style="margin:0;">Kết quả đất nền</h2>
+        <div class="sort-options">
+          <label>Sắp xếp:</label>
+          <select id="sortLand" onchange="sortLand(this.value)">
+            <option value="newest">Mới nhất</option>
+            <option value="price-low">Giá thấp → cao</option>
+            <option value="price-high">Giá cao → thấp</option>
+            <option value="area">Diện tích</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="listing-grid" class="listing-grid"></div>
+
+      <div class="pagination" id="pagination" style="margin-top:2rem;">
+        <button class="page-btn" onclick="prevPage()">« Trước</button>
+        <span id="pageInfo" style="align-self:center; padding:0 8px; color:#666;"></span>
+        <button class="page-btn" onclick="nextPage()">Sau »</button>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:2rem;">
+    <div class="container">
+      <p style="color:#cbd5e0;">© 2025 BĐS Việt Nam</p>
+    </div>
+  </footer>
+
+  <script src="js/land plot.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Căn hộ / Chung cư - BĐS Việt Nam</title>
+  <link rel="stylesheet" href="css/section.css" />
+</head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">BĐS Việt Nam</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="trade.html">Mua Bán</a></li>
+            <li><a href="hire.html">Cho Thuê</a></li>
+            <li><a class="active">Chung Cư</a></li>
+            <li><a class="login" href="login.html">Đăng Nhập</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="search-section">
+      <div class="container">
+        <h2 class="section-title">Căn hộ - Chung cư</h2>
+
+        <form id="buy-search-form" onsubmit="searchApt(event)">
+          <div class="form-group">
+            <div class="form-group">
+              <label>Từ khóa</label>
+              <input id="kw" type="text" placeholder="🔍Vinhomes..." />
+            </div>
+
+            <div class="form-group">
+              <label>Khu vực</label>
+              <select id="area">
+                <option value="">Tất cả</option>
+                  <option value="Quận 1">Quận 1</option>
+                  <option value="Quận 2">Quận 2</option>
+                  <option value="Quận 3">Quận 3</option>
+                  <option value="Quận 7">Quận 7</option>
+                  <option value="Bình Thạnh">Bình Thạnh</option>
+                  <option value="Quận 9">Quận 9</option>
+                  <option value="TP.HCM">TP.HCM</option>
+                  <option value="Hà Nội">Hà Nội</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label>Phòng ngủ</label>
+              <select id="beds">
+                <option value="">Tất cả</option>
+                <option value="1">1 PN</option>
+                <option value="2">2 PN</option>
+                <option value="3">3 PN</option>
+                <option value="4">4+ PN</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Mức giá</label>
+              <select id="priceRange">
+                <option value="">Tất cả</option>
+                <option value="0-2">Dưới 2 tỷ</option>
+                <option value="2-5">2 - 5 tỷ</option>
+                <option value="5-10">5 - 10 tỷ</option>
+                <option value="10+">Trên 10 tỷ</option>
+              </select>
+            </div>
+
+            <div>
+              <button type="submit">🔍Tìm Kiếm</button>
+            </div>
+          </div>
+        </form>
+
+        <div style="margin-top:1rem;">
+          <label style="font-weight:600; margin-right:0.5rem;">Lọc nhanh:</label>
+          <button class="filter-chip" onclick="quickAptFilter('new', this)">🆕 Mới</button>
+          <button class="filter-chip" onclick="quickAptFilter('cheap', this)">💰 Giá rẻ</button>
+          <button class="filter-chip" onclick="quickAptFilter('luxury', this)">👑 Cao cấp</button>
+          <button class="filter-chip" onclick="quickAptFilter('featured', this)">⭐ Nổi bật</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="listings">
+      <div class="container">
+        <div class="listings-header">
+          <h2 class="section-title" style="margin:0;">Kết quả căn hộ</h2>
+          <div class="sort-options">
+            <label>Sắp xếp:</label>
+            <select id="sortApt" onchange="sortApt(this.value)">
+              <option value="newest">Mới nhất</option>
+              <option value="price-low">Giá thấp → cao</option>
+              <option value="price-high">Giá cao → thấp</option>
+              <option value="area">Diện tích</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="listing-grid" class="listing-grid"></div>
+
+        <div class="pagination" id="pagination" style="margin-top:2rem;">
+          <button class="page-btn" onclick="prevPage()">« Trước</button>
+          <span id="pageInfo" style="align-self:center; padding:0 8px; color:#666;"></span>
+          <button class="page-btn" onclick="nextPage()">Sau »</button>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:2rem;">
+      <div class="container">
+        <p style="color:#cbd5e0;">© 2025 BĐS Việt Nam</p>
+      </div>
+    </footer>
+
+    <script src="js/apartment.js"></script>
+  </body>
+</html>

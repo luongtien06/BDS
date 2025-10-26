@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bất Động Sản Việt Nam - Mua Bán & Cho Thuê</title>
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+  <body>
+    <header>
+  <div class="container">
+    <div class="logo-wrapper">
+      <img src="img/logo.png" alt="BDS Logo" class="logo-img">
+      <h1 class="logo">BĐS Việt Nam</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="trade.html">Mua Bán</a></li>
+        <li><a href="hire.html">Cho Thuê</a></li>
+        <li><a href="#">Dự Án</a></li>
+        <li><a href="#" onclick="alert('Chức năng phát triển!')">Đăng Tin</a></li>
+        <li><a class="login" href="login.html">Đăng Nhập</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+  <div class="banner-slider">
+    <div class="banner-slide active">
+      <img src="img/banner.png" alt="Banner chính">
+      <div class="banner-content">
+        <h1>Tìm Ngôi Nhà Mơ Ước Của Bạn</h1>
+        <p>Kết nối hàng nghìn người mua - bán - cho thuê bất động sản</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+      <div class="container">
+          <h2 class="tab-btn active">Bộ Lọc</h2>
+          
+        <form id="search-form">
+          <div class="form-group">
+            <label>Từ khóa</label>
+            <input type="text" id="keyword" placeholder="Căn hộ Quận 7...">
+          </div>
+          <div class="form-group">
+            <label>Khu vực</label>
+            <select id="location">
+              <option value="">Tất cả</option>
+              <option value="HCM">TP.HCM</option>
+              <option value="HN">Hà Nội</option>
+              <option value="DN">Đà Nẵng</option>
+              <option value="BD">Bình Dương</option>
+              <option value="ĐN">Đồng Nai</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Loại hình</label>
+            <select id="property-type">
+              <option value="">Tất cả</option>
+              <option value="apartment">Căn hộ</option>
+              <option value="house">Nhà phố</option>
+              <option value="villa">Biệt thự</option>
+              <option value="land">Đất nền</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mức giá</label>
+            <select id="price-range">
+              <option value="">Tất cả</option>
+              <option value="0-2">Dưới 2 tỷ</option>
+              <option value="2-5">2 - 5 tỷ</option>
+              <option value="5-10">5 - 10 tỷ</option>
+              <option value="10+">Trên 10 tỷ</option>
+            </select>
+          </div>
+          <button type="submit">🔍 Tìm Kiếm</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Quick Filters -->
+    <section class="quick-filters">
+      <div class="container">
+        <div class="filter-chips">
+          <label>Lọc nhanh:</label>
+          <button class="filter-chip" onclick="quickFilter('new')">🆕 Tin mới</button>
+          <button class="filter-chip" onclick="quickFilter('featured')">⭐ Nổi bật</button>
+          <button class="filter-chip" onclick="quickFilter('cheap')">💰 Giá rẻ</button>
+          <button class="filter-chip" onclick="quickFilter('luxury')">👑 Cao cấp</button>
+          <button class="filter-chip" onclick="quickFilter('urgent')">⚡ Cần bán gấp</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+      <div class="container">
+        <h2 class="section-title">Danh Mục Bất Động Sản</h2>
+        <div class="category-grid">
+          <a href="apartment.html" class="category-card">
+            <div class="category-icon">🏢</div>
+            <h3>Căn hộ/Chung cư</h3>
+            <p class="category-count">8,234 tin đăng</p>
+          </a>
+          <a href="townhouse.html" class="category-card" onclick="filterByCategory('house')">
+            <div class="category-icon">🏠</div>
+            <h3>Nhà phố</h3>
+            <p class="category-count">5,678 tin đăng</p>
+          </a>
+          <a href="villa.html" class="category-card" onclick="filterByCategory('villa')">
+            <div class="category-icon">🏰</div>
+            <h3>Biệt thự</h3>
+            <p class="category-count">2,456 tin đăng</p>
+          </a>
+          <a href="land plot.html" class="category-card" onclick="filterByCategory('land')">
+            <div class="category-icon">🌾</div>
+            <h3>Đất nền</h3>
+            <p class="category-count">6,789 tin đăng</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listings -->
+    <section class="listings">
+      <div class="container">
+        <div class="listings-header">
+          <h2 class="section-title" style="margin: 0;">Tin Đăng Mới Nhất</h2>
+          <div class="sort-options">
+            <label>Sắp xếp:</label>
+            <select id="sort-by" onchange="sortListings(this.value)">
+              <option value="newest">Tất cả</option>
+              <option value="price-low">Giá thấp đến cao</option>
+              <option value="price-high">Giá cao đến thấp</option>
+              <option value="area">Diện tích</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active" onclick="changeView('grid')">⊞</button>
+              <button class="view-btn" onclick="changeView('list')">☰</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Đang tải dữ liệu...</p>
+        </div>
+
+        <div class="listing-grid" id="listing-grid">
+          <!-- Listings will be dynamically generated -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Dự Án Nổi Bật</h2>
+        <div class="project-slider">
+          <div class="project-card">
+            <div class="project-image">🏙️</div>
+            <div class="project-info">
+              <h3>Vinhomes Grand Park</h3>
+              <p>📍 Quận 9, TP.HCM - Diện tích: 271ha</p>
+              <p class="project-price">Từ 1.8 tỷ</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">🌆</div>
+            <div class="project-info">
+              <h3>The Sun Avenue</h3>
+              <p>📍 Quận 2, TP.HCM - Diện tích: 4.2ha</p>
+              <p class="project-price">Từ 2.5 tỷ</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">🏗️</div>
+            <div class="project-info">
+              <h3>Masteri Centre Point</h3>
+              <p>📍 Quận 9, TP.HCM - Diện tích: 9.3ha</p>
+              <p class="project-price">Từ 3.2 tỷ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>🏢 Về Chúng Tôi</h3>
+            <p style="color: #cbd5e0; line-height: 1.6; margin-bottom: 1rem;">
+              BĐS Việt Nam - Nền tảng mua bán và cho thuê bất động sản hàng đầu Việt Nam với hơn 25,000 tin đăng chất lượng.
+            </p>
+            <ul>
+              <li><a href="#">Giới thiệu công ty</a></li>
+              <li><a href="#">Quy chế hoạt động</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">Điều khoản sử dụng</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>📋 Danh Mục</h3>
+            <ul>
+              <li><a href="#">Mua bán căn hộ</a></li>
+              <li><a href="#">Cho thuê nhà phố</a></li>
+              <li><a href="#">Mua bán biệt thự</a></li>
+              <li><a href="#">Đất nền dự án</a></li>
+              <li><a href="#">Văn phòng cho thuê</a></li>
+              <li><a href="#">Mặt bằng kinh doanh</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>🤝 Hỗ Trợ Khách Hàng</h3>
+            <ul>
+              <li><a href="#">Trung tâm trợ giúp</a></li>
+              <li><a href="#">Hướng dẫn đăng tin</a></li>
+              <li><a href="#">Quy định đăng tin</a></li>
+              <li><a href="#">Bảng giá dịch vụ</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Giải quyết khiếu nại</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>📞 Liên Hệ</h3>
+            <div style="margin-bottom: 1rem;">
+              <p style="color: #cbd5e0; margin-bottom: 0.5rem;">
+                <strong style="color: white;">Hotline:</strong> 
+                <a href="tel:19001234" style="color: var(--primary-color); font-size: 1.2rem; font-weight: bold;">1900 1234</a>
+              </p>
+              <p style="color: #cbd5e0; margin-bottom: 0.5rem;">
+                <strong style="color: white;">Email:</strong> 
+                <a href="mailto:info@bds.vn" style="color: #cbd5e0;">info@bds.vn</a>
+              </p>
+              <p style="color: #cbd5e0; margin-bottom: 0.5rem;">
+                <strong style="color: white;">Địa chỉ:</strong><br>
+                123 Đường Lê Lợi, Phường Bến Nghé,<br>
+                Quận 1, TP. Hồ Chí Minh
+              </p>
+              <p style="color: #cbd5e0;">
+                <strong style="color: white;">Giờ làm việc:</strong><br>
+                Thứ 2 - Thứ 7: 8:00 - 22:00<br>
+                Chủ nhật: 8:00 - 18:00
+              </p>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+              <p style="color: white; font-weight: bold; margin-bottom: 0.8rem;">Kết nối với chúng tôi:</p>
+              <div style="display: flex; gap: 1rem;">
+                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1877f2; border-radius: 50%; color: white; font-size: 1.2rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">f</a>
+                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #ff0000; border-radius: 50%; color: white; font-size: 1.2rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">▶</a>
+                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); border-radius: 50%; color: white; font-size: 1.2rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">📷</a>
+                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #0088cc; border-radius: 50%; color: white; font-size: 1.2rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">✈</a>
+                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #0077b5; border-radius: 50%; color: white; font-size: 1.2rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Info Section -->
+        <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+            <div>
+              <p style="color: var(--primary-color); font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">MST</p>
+              <p style="color: #cbd5e0;">0123456789</p>
+            </div>
+            <div>
+              <p style="color: var(--primary-color); font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">Giấy phép</p>
+              <p style="color: #cbd5e0;">Số 123/GP-TTĐT</p>
+            </div>
+            <div>
+              <p style="color: var(--primary-color); font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">Cấp bởi</p>
+              <p style="color: #cbd5e0;">Sở TTTT TP.HCM</p>
+            </div>
+            <div>
+              <p style="color: var(--primary-color); font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">Ngày cấp</p>
+              <p style="color: #cbd5e0;">01/01/2020</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment & Partner Logos -->
+        <div style="text-align: center; padding: 2rem 0; border-top: 1px solid #4a5568; border-bottom: 1px solid #4a5568;">
+          <p style="color: white; font-weight: bold; margin-bottom: 1rem;">Phương thức thanh toán</p>
+          <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="background: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; color: #1e90ff;">VISA</div>
+            <div style="background: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; color: #ff6b00;">MasterCard</div>
+            <div style="background: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; color: #0066cc;">MOMO</div>
+            <div style="background: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; color: #d50032;">ZaloPay</div>
+            <div style="background: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; color: #ee0033;">VNPay</div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p style="margin-bottom: 0.5rem; font-size: 1rem;">© 2025 <strong style="color: var(--primary-color);">BĐS Việt Nam</strong>. Tất cả quyền được bảo lưu.</p>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Nền tảng công nghệ bất động sản hàng đầu Việt Nam 🏆</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--primary-color) 0%, #1565c0 100%); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(30,144,255,0.4); z-index: 999; transition: all 0.3s;" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+    <!-- Scripts -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
