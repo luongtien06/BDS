@@ -192,12 +192,11 @@ nav a:hover {
 
 /* Hero Banner */
 .hero-banner {
-    background: linear-gradient(135deg, rgba(30,144,255,0.95) 0%, rgba(21,101,192,0.95) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23667eea" width="1200" height="400"/></svg>');
+    background: #6d6c6c;
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 4rem 0;
+    padding: 0.5rem 0;
     text-align: center;
 }
 
@@ -785,4 +784,5 @@ footer {
     .listing-grid {
     grid-template-columns: 1fr;
     }
+
 }
